@@ -7,6 +7,25 @@
  */
 
 import { createBackend } from '@backstage/backend-defaults';
+import { createBackendModule } from '@backstage/backend-plugin-api';
+import { githubOrgEntityProviderTransformsExtensionPoint } from '@backstage/plugin-catalog-backend-module-github-org';
+import { myTeamTransformer, myUserTransformer } from './transformers';
+
+const githubOrgModule = createBackendModule({
+  pluginId: 'catalog',
+  moduleId: 'github-org-extensions',
+  register(env) {
+    env.registerInit({
+      deps: {
+        githubOrg: githubOrgEntityProviderTransformsExtensionPoint,
+      },
+      async init({ githubOrg }) {
+        githubOrg.setTeamTransformer(myTeamTransformer);
+        githubOrg.setUserTransformer(myUserTransformer);
+      },
+    });
+  },
+});
 
 const backend = createBackend();
 
@@ -55,6 +74,13 @@ backend.add(import('@backstage/plugin-search-backend-module-pg'));
 // search collators
 backend.add(import('@backstage/plugin-search-backend-module-catalog'));
 backend.add(import('@backstage/plugin-search-backend-module-techdocs'));
+
+// auth
+backend.add(import('@backstage/plugin-auth-backend-module-github-provider'));
+
+// github-org
+backend.add(import('@backstage/plugin-catalog-backend-module-github-org'));
+backend.add(githubOrgModule);
 
 // kubernetes plugin
 backend.add(import('@backstage/plugin-kubernetes-backend'));
