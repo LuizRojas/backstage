@@ -1,10 +1,10 @@
-# [Backstage](https://backstage.io)
+# Backstage
 
-This is your newly scaffolded Backstage App, Good Luck!
+Seja bem-vindo(a) ao projeto de plataforma de catálogo de software e ferramentas para DEVs usando backstage
 
-To start the app, run:
+Aqui você irá encontrar:
 
-```sh
-yarn install
-yarn start
-```
+- Como usar a imagem
+- Makefile
+- Docker compose
+- Workflow
