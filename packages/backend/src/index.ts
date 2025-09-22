@@ -10,6 +10,8 @@ import { createBackend } from '@backstage/backend-defaults';
 import { createBackendModule } from '@backstage/backend-plugin-api';
 import { githubOrgEntityProviderTransformsExtensionPoint } from '@backstage/plugin-catalog-backend-module-github-org';
 import { myTeamTransformer, myUserTransformer } from './transformers';
+import dotenv from 'dotenv';
+dotenv.config({ path: '../../.env' });
 
 const githubOrgModule = createBackendModule({
   pluginId: 'catalog',
@@ -88,7 +90,5 @@ backend.add(import('@backstage/plugin-kubernetes-backend'));
 // notifications and signals plugins
 backend.add(import('@backstage/plugin-notifications-backend'));
 backend.add(import('@backstage/plugin-signals-backend'));
-
-
 
 backend.start();

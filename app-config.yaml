@@ -1,9 +1,9 @@
 app:
-  title: Scaffolded Backstage App
+  title: Backstage LEDS
   baseUrl: http://localhost:3000
 
 organization:
-  name: My Company
+  name: LEDS
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -70,8 +70,8 @@ auth:
     guest: {}
     github:
       production:
-        clientId: ${GITHUB_CLIENT_ID}
-        clientSecret: ${GITHUB_CLIENT_SECRET}
+        clientId: ${AUTH_GITHUB_CLIENT_ID}
+        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
         signIn:
           resolvers:
             # Matches the GitHub username with the Backstage user entity name.
