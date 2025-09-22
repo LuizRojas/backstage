@@ -14,7 +14,7 @@ DOCKER_IMAGE_TAG := ledshub
 
 # Alvo padrão: executado quando você digita apenas 'make'
 # Instala as dependências e depois constrói o projeto.
-all: install build
+all: install build run
 
 # Alvo para instalar as dependências do projeto.
 install:
