@@ -110,24 +110,25 @@ catalog:
       rules:
         - allow: [User, Group]
 
-    ## Uncomment these lines to add more example data
+    # # Uncomment these lines to add more example data
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
-    ## Uncomment these lines to add an example org
+    # # Uncomment these lines to add an example org
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
     #   rules:
     #     - allow: [User, Group]
-  providers:
-  githubOrg:
-    id: production
-    githubUrl: https://github.com
-    orgs: ['leds-conectafapes']
-    schedule:
-      initialDelay: { seconds: 30 }
-      frequency: { hours: 1 }
-      timeout: { minutes: 50 }
+  
+  discovery:
+    github:
+      - id: 'production-org-discovery'
+        host: github.com
+        orgs: ['leds-conectafapes', 'leds-org']
+        schedule:
+          initialDelay: { seconds: 30 }
+          frequency: { hours: 1 }
+          timeout: { minutes: 50 }
 
 kubernetes:
   # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
