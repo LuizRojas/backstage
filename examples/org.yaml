@@ -22,15 +22,6 @@ apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
   name: produtos-internos
-spec:
-  type: team
-  children: []
-
----
-apiVersion: backstage.io/v1alpha1
-kind: Group
-metadata:
-  name: produtos-internos
   description: Equipe de produtos internos
   links:
     - url: https://backstage.io
@@ -98,7 +89,8 @@ kind: User
 metadata:
   name: LuizRojas
 spec:
-  memberOf: [produtos-internos]
+  memberOf:
+    - group:default/produtos-internos
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -106,15 +98,16 @@ kind: User
 metadata:
   name: tadeuaugustovs
 spec:
-  memberOf: [produtos-internos]
+  memberOf:
+    - group:default/produtos-internos
 
 ---
 apiVersion: backstage.io/v1alpha1
 kind: User
 metadata:
   name: Eskriy
-spec:
-  memberOf: [produtos-internos]
+  memberOf:
+    - group:default/produtos-internos
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -122,7 +115,8 @@ kind: User
 metadata:
   name: rafaelrezo
 spec:
-  memberOf: [devops]
+  memberOf:
+    - group:default/devops
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -130,4 +124,5 @@ kind: User
 metadata:
   name: paulossjunior
 spec:
-  memberOf: [management]
+  memberOf:
+    - group:default/management
