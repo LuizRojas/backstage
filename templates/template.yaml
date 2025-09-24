@@ -1,0 +1,51 @@
+
+apiVersion: scaffolder.backstage.io/v1beta3
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
+kind: Template
+metadata:
+  name: generated-example-template
+  title: Scaffolder Example Template
+  description: An example template for the scaffolder
+spec:
+  owner: user:guest
+  type: service
+  # These parameters are used to generate the input form in the frontend, and are
+  # used to gather input data for the execution of the template.
+  parameters:
+    - title: Fill in some steps
+      required:
+        - name
+      properties:
+        name:
+          title: Nome
+          type: string
+          description: Nome único para o componente
+        owner:
+          title: Dono
+          type: string
+          description: Dono do componente
+          ui:field: OwnerPicker
+          ui:options:
+            catalogFilter:
+              kind: Group
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Localizacao do Repositório
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+  steps:
+    - id: fetch-base
+      name: Fetch Base
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          name: ${{parameters.name}}
+          owner: ${{parameters.owner}}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}

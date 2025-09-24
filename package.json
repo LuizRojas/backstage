@@ -52,6 +52,7 @@
   },
   "packageManager": "yarn@4.4.1",
   "dependencies": {
+    "@backstage/plugin-home": "^0.8.12",
     "dotenv": "^17.2.2"
   }
 }

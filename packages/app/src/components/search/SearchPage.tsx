@@ -46,7 +46,7 @@ const SearchPage = () => {
 
   return (
     <Page themeId="home">
-      <Header title="Search" />
+      <Header title="Buscar" />
       <Content>
         <Grid container direction="row">
           <Grid item xs={12}>
