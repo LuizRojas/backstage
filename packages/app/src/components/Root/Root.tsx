@@ -28,6 +28,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { MyGroupsSidebarItem } from '@backstage/plugin-org';
 import GroupIcon from '@material-ui/icons/People';
 import { NotificationsSidebarItem } from '@backstage/plugin-notifications';
+import FolderIcon from '@material-ui/icons/Folder';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -61,21 +62,21 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
   <SidebarPage>
     <Sidebar>
       <SidebarLogo />
-      <SidebarGroup label="Search" icon={<SearchIcon />} to="/search">
+      <SidebarGroup label="Buscar" icon={<SearchIcon />} to="/search">
         <SidebarSearchModal />
       </SidebarGroup>
       <SidebarDivider />
       <SidebarGroup label="Menu" icon={<MenuIcon />}>
         {/* Global nav, not org-specific */}
-        <SidebarItem icon={HomeIcon} to="catalog" text="Home" />
+        <SidebarItem icon={FolderIcon} to="catalog" text="Catálogo" />
         <MyGroupsSidebarItem
-          singularTitle="My Group"
-          pluralTitle="My Groups"
+          singularTitle="Meu Grupo"
+          pluralTitle="Meus Grupos"
           icon={GroupIcon}
         />
         <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
-        <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
-        <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
+        <SidebarItem icon={LibraryBooks} to="docs" text="Documentos" />
+        <SidebarItem icon={CreateComponentIcon} to="create" text="Criar" />
         {/* End global nav */}
         <SidebarDivider />
         <SidebarScrollWrapper>
@@ -87,7 +88,7 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
       <NotificationsSidebarItem />
       <SidebarDivider />
       <SidebarGroup
-        label="Settings"
+        label="Configurações"
         icon={<UserSettingsSignInAvatar />}
         to="/settings"
       >
