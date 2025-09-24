@@ -31,8 +31,20 @@ apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
   name: produtos-internos
+  description: Equipe de produtos internos
+  links:
+    - url: https://backstage.io
+      title: Backstage Documentação
+      icon: menubook
+    - url: https://github.com/orgs/leds-conectafapes/projects/27
+      title: Projetos
+      icon: AccountTree
 spec:
   type: team
+  profile:
+    displayName: Produtos Internos
+    email: internos@leds.com.br
+    picture: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcqN2PnwFsO-xp8XnSouO1-JewonidAMqeRg&s
   children: []
 
 ---
@@ -100,6 +112,22 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: User
 metadata:
+  name: Eskriy
+spec:
+  memberOf: [produtos-internos]
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
   name: rafaelrezo
 spec:
   memberOf: [devops]
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: paulossjunior
+spec:
+  memberOf: [management]
