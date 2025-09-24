@@ -1,23 +1,4 @@
 services:
-  # Serviço para o banco de dados PostgreSQL
-  # postgres:
-  #   image: postgres:13
-  #   restart: unless-stopped
-  #   environment:
-  #     # --- Credenciais fixas para desenvolvimento ---
-  #     POSTGRES_USER: backstage
-  #     POSTGRES_PASSWORD: password_dev # Senha simples para dev
-  #     POSTGRES_DB: backstage_dev
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
-  #   healthcheck:
-  #     # O healthcheck agora usa o usuário fixo 'backstage'
-  #     test: ["CMD-SHELL", "pg_isready -U backstage"]
-  #     interval: 10s
-  #     timeout: 5s
-  #     retries: 5
-
-  # Serviço para o backend do Backstage
   backstage:
     build:
       context: .
@@ -28,9 +9,3 @@ services:
       - "3000:3000"
     env_file:
       - .env
-    # depends_on:
-    #   postgres:
-    #     condition: service_healthy
-
-# volumes:
-#   pgdata: {}
