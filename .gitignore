@@ -54,5 +54,3 @@ e2e-test-report/
 
 # Cache
 .cache/
-
-yarn.lock
