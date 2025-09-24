@@ -28,6 +28,7 @@ import { MyGroupsSidebarItem } from '@backstage/plugin-org';
 import GroupIcon from '@material-ui/icons/People';
 import { NotificationsSidebarItem } from '@backstage/plugin-notifications';
 import FolderIcon from '@material-ui/icons/Folder';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -67,6 +68,7 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
       <SidebarDivider />
       <SidebarGroup label="Menu" icon={<MenuIcon />}>
         {/* Global nav, not org-specific */}
+        <SidebarItem icon={HomeIcon} to="/" text="Início" />
         <SidebarItem icon={FolderIcon} to="catalog" text="Catálogo" />
         <MyGroupsSidebarItem
           singularTitle="Meu Grupo"
